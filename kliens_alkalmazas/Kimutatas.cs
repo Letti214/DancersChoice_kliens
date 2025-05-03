@@ -19,11 +19,11 @@ namespace kliens_alkalmazas
 
             var highStockItems = termekek
             .Where(t => t.Raktáron > 0)
-            .OrderBy(t => t.Raktáron)
+            .OrderByDescending(t => t.Raktáron)
             .Take(10)
             .Select(t => $"{t.Név}: {t.Raktáron} db")
             .ToList();
-
+            
             labelMagas.Text = "Top 10 magas készlet:\n" + string.Join("\n", highStockItems);
             
             var lowStockItems = termekek
